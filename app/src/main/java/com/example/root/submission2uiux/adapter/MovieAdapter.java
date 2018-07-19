@@ -58,7 +58,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
         holder.tvoverview.setText(listPopuler.get(position).getOverview() + " ...");
 
         DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
-        DateFormat outputFormat = new SimpleDateFormat("dd MMM yyyy");
+        DateFormat outputFormat = new SimpleDateFormat("EEEE, dd MMM yyyy");
         String inputDateStr= listPopuler.get(position).getReleaseDate();
         Date date = null;
         try {
