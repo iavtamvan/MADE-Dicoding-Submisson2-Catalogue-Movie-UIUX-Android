@@ -25,9 +25,6 @@
             android:name=".menu.activity.DetailActivity"
             android:label="@string/title_activity_detail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".menu.activity.SettingsActivity"
-            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>
