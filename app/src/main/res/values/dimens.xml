@@ -8,4 +8,6 @@
 
     <dimen name="app_bar_height">180dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+    <dimen name="iv_detail_width">180dp</dimen>
+    <dimen name="iv_detail_height">250dp</dimen>
 </resources>

@@ -1,12 +1,14 @@
 package com.example.root.submission2uiux.rest;
 
+import com.example.root.submission2uiux.BuildConfig;
+
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Client {
-    private static String BASE_URL = "https://api.themoviedb.org/3/movie/";
+    private static String BASE_URL = BuildConfig.Base_URL;
 
     private static Retrofit getClient() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();

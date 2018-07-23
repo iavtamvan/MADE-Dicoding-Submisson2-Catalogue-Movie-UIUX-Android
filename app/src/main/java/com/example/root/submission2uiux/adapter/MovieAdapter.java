@@ -14,10 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.root.submission2uiux.BuildConfig;
 import com.example.root.submission2uiux.R;
-import com.example.root.submission2uiux.feature.activity.DetailActivity;
+import com.example.root.submission2uiux.menu.activity.DetailActivity;
 import com.example.root.submission2uiux.helper.Config;
-import com.example.root.submission2uiux.model.MovieModel;
 import com.example.root.submission2uiux.model.ResultsItem;
 
 import java.text.DateFormat;
@@ -30,14 +30,10 @@ import java.util.List;
 /**
  * Created by iav_root on 7/16/18.
  */
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder>  implements Filterable {
+public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder> implements Filterable {
     private Context context;
-    //TODO 1
     private List<ResultsItem> listPopuler;
     private List<ResultsItem> searchResult;
-    //    private ArrayList<MovieModel> listData;
-
-    //TODO 2
     public MovieAdapter(Context context, ArrayList<ResultsItem> listPopuler) {
         this.context = context;
         this.listPopuler = listPopuler;
@@ -52,14 +48,11 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(final MovieAdapter.MyViewHolder holder, final int position) {
-        //TODO 3
-//        http://image.tmdb.org/t/p/w185/5N20rQURev5CNDcMjHVUZhpoCNC.jpg
         holder.tvJudulFilm.setText(listPopuler.get(position).getTitle());
         holder.tvoverview.setText(listPopuler.get(position).getOverview() + " ...");
-
-        DateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
-        DateFormat outputFormat = new SimpleDateFormat("EEEE, dd MMM yyyy");
-        String inputDateStr= listPopuler.get(position).getReleaseDate();
+        DateFormat inputFormat = new SimpleDateFormat(context.getString(R.string.FORMAT_YYY_MM_DD));
+        DateFormat outputFormat = new SimpleDateFormat(context.getString(R.string.FORMAT_DAY_DD_MM_YYYY));
+        String inputDateStr = listPopuler.get(position).getReleaseDate();
         Date date = null;
         try {
             date = inputFormat.parse(inputDateStr);
@@ -67,20 +60,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
             e.printStackTrace();
         }
         String outputDateStr = outputFormat.format(date);
-
-
-
         holder.tvrelease.setText(outputDateStr);
-
         Glide.with(context)
-                .load("https://image.tmdb.org/t/p/w500" + listPopuler.get(position).getPosterPath())
+                .load(BuildConfig.Image + listPopuler.get(position).getPosterPath())
                 .into(holder.ivGambarFilm);
 
         holder.btn_item_list_detail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra(Config.BUNDLE_POSTER_IMAGE, "https://image.tmdb.org/t/p/w500" + listPopuler.get(position).getPosterPath());
+                intent.putExtra(Config.BUNDLE_POSTER_IMAGE, BuildConfig.Image + listPopuler.get(position).getPosterPath());
                 intent.putExtra(Config.BUNDLE_TITTLE, holder.tvJudulFilm.getText().toString().trim());
                 intent.putExtra(Config.BUNDLE_OVERVIEW, listPopuler.get(position).getOverview());
                 intent.putExtra(Config.BUNDLE_RELEASE_DATE, holder.tvrelease.getText().toString().trim());
@@ -89,7 +78,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
                 intent.putExtra(Config.BUNDLE_VOTE_AVERAGE, listPopuler.get(position).getVoteAverage());
                 intent.putExtra(Config.BUNDLE_POPULARITY, listPopuler.get(position).getPopularity());
                 intent.putExtra(Config.BUNDLE_ORIGINAL_LANGUAGE, listPopuler.get(position).getOriginalLanguage());
-                intent.putExtra(Config.BUNDLE_BACKDROPH_IMAGE, "https://image.tmdb.org/t/p/w500" + listPopuler.get(position).getBackdropPath());
+                intent.putExtra(Config.BUNDLE_BACKDROPH_IMAGE, BuildConfig.Image + listPopuler.get(position).getBackdropPath());
                 context.startActivity(intent);
             }
         });
@@ -100,9 +89,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
                 String shareBody = holder.tvJudulFilm.getText().toString().trim();
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, context.getString(R.string.SUBJEK));
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-                context.startActivity(Intent.createChooser(sharingIntent, "Share via"));
+                context.startActivity(Intent.createChooser(sharingIntent, context.getString(R.string.SHARE_VIA)));
             }
         });
     }
@@ -123,11 +112,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
 
                 if (searchResult == null)
                     searchResult = listPopuler;
-                if (constraint != null){
-                    if (listPopuler != null &searchResult.size()>0){
-                        for (final ResultsItem g : searchResult){
+                if (constraint != null) {
+                    if (listPopuler != null & searchResult.size() > 0) {
+                        for (final ResultsItem g : searchResult) {
 //                            if (g.getTitle().equalsIgnoreCase();
-                            if (g.getTitle().toLowerCase().contains(constraint.toString()))resultsItems.add(g);
+                            if (g.getTitle().toLowerCase().contains(constraint.toString()))
+                                resultsItems.add(g);
                         }
                     }
                     oReturn.values = resultsItems;
@@ -138,7 +128,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
 
             @Override
             protected void publishResults(CharSequence constraint, FilterResults results) {
-                listPopuler = (ArrayList<ResultsItem>)results.values;
+                listPopuler = (ArrayList<ResultsItem>) results.values;
                 notifyDataSetChanged();
             }
         };
@@ -153,7 +143,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
         Button btn_item_list_share;
         Button btn_item_list_detail;
 
-        public MyViewHolder(View itemView) {
+        MyViewHolder(View itemView) {
             super(itemView);
             ivGambarFilm = itemView.findViewById(R.id.iv_item_list_poster);
             tvJudulFilm = itemView.findViewById(R.id.tv_item_list_tittle);

@@ -3,25 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.fragment.NowPlayingFragment">
+    tools:context=".menu.fragment.NowPlayingFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <SearchView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/sv_now_playing_movie"
-            android:visibility="gone"></SearchView>
+            android:visibility="gone" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edt_search"
             android:imeOptions="actionDone"
             android:inputType="text"
-            android:hint="Cari filmmu disini !!!"
+            android:hint="@string/cari_filmmu_disini"
             android:background="@android:drawable/edit_text"
             android:layout_margin="4dp"/>
 

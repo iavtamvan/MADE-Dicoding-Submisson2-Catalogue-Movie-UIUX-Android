@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">submission 2 UI UX</string>
+    <string name="action_settings">Pengaturan</string>
+    <string name="SHARE_VIA">Bagikan dengan</string>
+    <string name="SUBJEK">Ini Link dari aplikasi movie</string>
+    <string name="FORMAT_YYY_MM_DD">yyyy-MM-dd</string>
+    <string name="FORMAT_DAY_DD_MM_YYYY">EEEE, dd MMM yyyy</string>
+    <string name="release_date">Rilis Tanggal</string>
+    <string name="release_date_sub">Rilis Tanggal</string>
+    <string name="vote_average">Rata - Rata</string>
+    <string name="vote_average_sub">7.2</string>
+    <string name="vote_count">Hitung Suara</string>
+    <string name="vote_count_sub">9292</string>
+    <string name="original_language">Bahasa Asli</string>
+    <string name="original_language_sub">en</string>
+    <string name="cari_filmmu_disini">Cari filmmu disini !!!</string>
+    <string name="judul">Judul</string>
+    <string name="overview">Ikhtisar</string>
+    <string name="date">Tanggal</string>
+    <string name="detail">DETAIL</string>
+    <string name="share">Bagikan</string>
+    <string name="name_fragment_now_playing">Sekarang Diputar</string>
+    <string name="name_fragment_up_coming">Akan Datang</string>
+    <string name="overview_post">Ikhtisar Post</string>
+
+    <string name="pref_title_system_sync_settings">Sistem pengaturan singkron</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifikation</string>
+
+    <string name="pref_title_new_message_notifications">Pesan baru notifikasi</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Diam</string>
+
+    <string name="pref_title_vibrate">Getase</string>
+    <string name="Message_loading">Mengambil data...</string>
+    <string name="Tittle_loading">Mohon TUnggu</string>
+    <string name="change_language_settings">Ganti Bahasa Kamu</string>
+</resources>

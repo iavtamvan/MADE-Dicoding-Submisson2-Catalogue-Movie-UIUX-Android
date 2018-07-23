@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".feature.activity.DetailActivity"
+    tools:context=".menu.activity.DetailActivity"
     tools:showIn="@layout/activity_detail">
 
     <LinearLayout
@@ -19,8 +19,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="180dp"
-                android:layout_height="250dp"
+                android:layout_width="@dimen/iv_detail_width"
+                android:layout_height="@dimen/iv_detail_height"
                 android:id="@+id/iv_detail_movie"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -30,19 +30,19 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Release Date"
+                    android:text="@string/release_date"
                     android:textStyle="bold"
                     android:textColor="@android:color/black"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Release Date"
+                    android:text="@string/release_date_sub"
                     android:id="@+id/tv_detail_release_date"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Vote Average"
+                    android:text="@string/vote_average"
                     android:textStyle="bold"
                     android:layout_marginTop="8dp"
                     android:textColor="@android:color/black"/>
@@ -50,7 +50,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="7.2"
+                    android:text="@string/vote_average_sub"
                     android:id="@+id/tv_detail_vote_average"/>
                 <RatingBar
                     android:id="@+id/rating"
@@ -64,7 +64,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Vote Count"
+                    android:text="@string/vote_count"
                     android:textStyle="bold"
                     android:layout_marginTop="8dp"
                     android:textColor="@android:color/black"/>
@@ -72,13 +72,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="9292"
+                    android:text="@string/vote_count_sub"
                     android:id="@+id/tv_detail_vote_count"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Original Language"
+                    android:text="@string/original_language"
                     android:textStyle="bold"
                     android:layout_marginTop="8dp"
                     android:textColor="@android:color/black"/>
@@ -86,7 +86,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="en"
+                    android:text="@string/original_language_sub"
                     android:id="@+id/tv_detail_original_language"/>
 
             </LinearLayout>
@@ -99,8 +99,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Overview"
-                android:textSize="20dp"
+                android:text="@string/overview"
+                android:textSize="20sp"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"/>
 
